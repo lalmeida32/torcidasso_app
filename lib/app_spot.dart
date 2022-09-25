@@ -21,20 +21,20 @@ class _AppSpotState extends State<AppSpot> {
       fit: StackFit.passthrough,
       children: [
         Container(
-            padding: const EdgeInsets.only(bottom: 3, left: 1, right: 1),
+            padding: const EdgeInsets.only(top: 11, left: 25, right: 25),
             child: SfRadialGauge(
-              title: GaugeTitle(text: widget.jogoMarker.getText()),
+              // title: GaugeTitle(text: widget.jogoMarker.getText()),
               axes: <RadialAxis>[
                 RadialAxis(
                   minimum: 0,
                   maximum: 1,
-                  startAngle: 160,
-                  endAngle: 20,
+                  startAngle: 180,
+                  endAngle: 0,
                   showLabels: false,
                   showTicks: false,
                   axisLineStyle: AxisLineStyle(
                       color: const Color(0xFF437DE9),
-                      thickness: 0.4,
+                      thickness: 0.2,
                       cornerStyle: CornerStyle.bothFlat,
                       thicknessUnit: GaugeSizeUnit.factor),
                   pointers: <GaugePointer>[
@@ -42,39 +42,36 @@ class _AppSpotState extends State<AppSpot> {
                       color: const Color(0xFF16C016),
                       value: widget.jogoMarker.getPercentage(),
                       cornerStyle: CornerStyle.bothFlat,
-                      width: 0.4,
+                      width: 0.2,
                       sizeUnit: GaugeSizeUnit.factor,
                     )
                   ],
                 ),
-                RadialAxis(
-                  minimum: 0,
-                  interval: 1,
-                  maximum: 10,
-                  showLabels: false,
-                  showTicks: true,
-                  showAxisLine: false,
-                  tickOffset: -0.3,
-                  offsetUnit: GaugeSizeUnit.factor,
-                  minorTicksPerInterval: 0,
-                  startAngle: 160,
-                  endAngle: 20,
-                  radiusFactor: 0.7,
-                  majorTickStyle: MajorTickStyle(
-                      length: 0.3,
-                      thickness: 2,
-                      lengthUnit: GaugeSizeUnit.factor,
-                      color: const Color.fromARGB(80, 0, 0, 0)),
-                )
+                // RadialAxis(
+                //   minimum: 0,
+                //   interval: 1,
+                //   maximum: 10,
+                //   showLabels: false,
+                //   showTicks: true,
+                //   showAxisLine: false,
+                //   tickOffset: -0.3,
+                //   offsetUnit: GaugeSizeUnit.factor,
+                //   minorTicksPerInterval: 0,
+                //   startAngle: 160,
+                //   endAngle: 20,
+                //   radiusFactor: 0.7,
+                //   majorTickStyle: MajorTickStyle(
+                //       length: 0.3,
+                //       thickness: 2,
+                //       lengthUnit: GaugeSizeUnit.factor,
+                //       color: const Color.fromARGB(80, 0, 0, 0)),
+                // )
               ],
             )),
         Container(
-            margin: const EdgeInsets.only(top: 32),
+            margin: const EdgeInsets.only(top: 21),
             child: const Image(
-              image: NetworkImage(
-                  "http://simpleicon.com/wp-content/uploads/map-marker-1.png",
-                  scale: 1),
-              color: Color.fromARGB(255, 255, 0, 0),
+              image: AssetImage('assets/soccer_marker.png'),
             ))
       ],
     );

@@ -25,7 +25,7 @@ class AppMarker {
     return torcida[0] / (torcida[0] + torcida[1]);
   }
 
-  String getText() {
-    return "$_times[0] x $_times[1]";
-  }
+  // String getText() {
+  //   return "$_times[0] x $_times[1]";
+  // }
 }

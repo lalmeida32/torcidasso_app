@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:torcidasso_app/app_footer.dart';
 
 class AppDraggable extends StatelessWidget {
   const AppDraggable({Key? key}) : super(key: key);
@@ -6,20 +7,11 @@ class AppDraggable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      minChildSize: 0.1,
-      initialChildSize: 0.5,
-      maxChildSize: 0.9,
+      minChildSize: 0.2,
+      initialChildSize: 0.2,
+      maxChildSize: 0.75,
       builder: (BuildContext context, ScrollController scrollController) {
-        return Container(
-          color: Colors.blue[100],
-          child: ListView.builder(
-            controller: scrollController,
-            itemCount: 25,
-            itemBuilder: (BuildContext context, int index) {
-              return ListTile(title: Text('Item $index'));
-            },
-          ),
-        );
+        return AppFooter(scrollController: scrollController);
       },
     );
   }
