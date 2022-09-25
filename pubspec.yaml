@@ -39,6 +39,10 @@ dependencies:
   flutter_map: ^3.0.0
   latlong2: ^0.8.1
   geolocator: ^9.0.2
+  flutter_map_marker_popup: ^4.0.0
+  syncfusion_flutter_gauges: ^20.2.50
+  syncfusion_flutter_core: ^20.2.50
+  percent_indicator: ^4.2.2
 
 dev_dependencies:
   flutter_test:
