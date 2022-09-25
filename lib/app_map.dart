@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_osm_plugin/flutter_osm_plugin.dart';
+import 'package:flutter_map/flutter_map.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:latlong2/latlong.dart';
 
 class AppMap extends StatefulWidget {
   const AppMap({Key? key}) : super(key: key);
@@ -9,12 +11,12 @@ class AppMap extends StatefulWidget {
 }
 
 class _AppMapState extends State<AppMap> {
-  MapController controller = MapController(
-    initMapWithUserPosition: true,
-  );
+  MapController controller = MapController();
 
   @override
   void initState() {
+    _determinePosition().then((value) =>
+        controller.move(LatLng(value.latitude, value.longitude), 15));
     super.initState();
   }
 
@@ -24,37 +26,51 @@ class _AppMapState extends State<AppMap> {
     super.dispose();
   }
 
+  Future<Position> _determinePosition() async {
+    bool serviceEnabled;
+    LocationPermission permission;
+    serviceEnabled = await Geolocator.isLocationServiceEnabled();
+    if (!serviceEnabled) {
+      return Future.error('Location services are disabled.');
+    }
+
+    permission = await Geolocator.checkPermission();
+    if (permission == LocationPermission.denied) {
+      permission = await Geolocator.requestPermission();
+      if (permission == LocationPermission.denied) {
+        return Future.error('Location permissions are denied');
+      }
+    }
+
+    if (permission == LocationPermission.deniedForever) {
+      return Future.error(
+          'Location permissions are permanently denied, we cannot request permissions.');
+    }
+    return await Geolocator.getCurrentPosition(
+      desiredAccuracy: LocationAccuracy.high,
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
-    return OSMFlutter(
-      controller: controller,
-      trackMyPosition: true,
-      initZoom: 19,
-      stepZoom: 1.0,
-      userLocationMarker: UserLocationMaker(
-        personMarker: MarkerIcon(
-          icon: Icon(
-            Icons.location_history_rounded,
-            color: Colors.red,
-            size: 48,
-          ),
-        ),
-        directionArrowMarker: MarkerIcon(
-          icon: Icon(
-            Icons.double_arrow,
-            size: 48,
-          ),
-        ),
+    return FlutterMap(
+      mapController: controller,
+      options: MapOptions(
+        center: LatLng(51.509364, -0.128928),
+        zoom: 9.2,
       ),
-      markerOption: MarkerOption(
-        defaultMarker: MarkerIcon(
-          icon: Icon(
-            Icons.person_pin_circle,
-            color: Colors.blue,
-            size: 56,
-          ),
+      nonRotatedChildren: [
+        AttributionWidget.defaultWidget(
+          source: 'OpenStreetMap contributors',
+          onSourceTapped: null,
         ),
-      ),
+      ],
+      children: [
+        TileLayer(
+          urlTemplate: 'https://tile.openstreetmap.org/{z}/{x}/{y}.png',
+          userAgentPackageName: 'com.example.app',
+        ),
+      ],
     );
   }
 }
