@@ -6,8 +6,10 @@ class AppDraggable extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return DraggableScrollableSheet(
-      builder:
-          (BuildContext context, ScrollController scrollController) {
+      minChildSize: 0.1,
+      initialChildSize: 0.5,
+      maxChildSize: 0.9,
+      builder: (BuildContext context, ScrollController scrollController) {
         return Container(
           color: Colors.blue[100],
           child: ListView.builder(
