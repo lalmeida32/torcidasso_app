@@ -21,9 +21,16 @@ class _AppMapState extends State<AppMap> {
   void initState() {
     _determinePosition().then((value) {
       final pos = LatLng(value.latitude, value.longitude);
+      print(value.latitude);
+      print(value.longitude);
       _controller.move(pos, 15);
       _addMarker(
-          AppMarker(pos, [3, 2], ["Brasil", "Qatar"], 0).generateMarker());
+          AppMarker(pos, [3, 2], ["Brasil", "Qatar"], 0, null).generateMarker(),);
+      _addMarker(
+        AppMarker(LatLng(-22.008969, -47.898936), [3, 2], ["Brasil", "Qatar"], 0, 'soccer').generateMarker(),);
+      _addMarker(
+        AppMarker(LatLng(-22.008008, -47.890851), [3, 2], ["Brasil", "Qatar"], 0, 'soccer').generateMarker(),);
+
     });
     super.initState();
   }

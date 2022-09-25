@@ -3,6 +3,7 @@ import 'package:latlong2/latlong.dart';
 import 'package:torcidasso_app/app_spot.dart';
 
 class AppMarker {
+  final String? type;
   final LatLng _position;
   final List<int> torcida;
 
@@ -10,12 +11,12 @@ class AppMarker {
   final List<String> _times;
   final int _esporte;
 
-  AppMarker(this._position, this.torcida, this._times, this._esporte);
+  AppMarker(this._position, this.torcida, this._times, this._esporte, this.type);
 
   Marker generateMarker() {
     return Marker(
       point: _position,
-      builder: ((context) => AppSpot(type: null, jogoMarker: this)),
+      builder: ((context) => AppSpot(type: type, jogoMarker: this)),
       rotate: true,
       width: 100,
       height: 75,
