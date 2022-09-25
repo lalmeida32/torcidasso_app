@@ -6,7 +6,7 @@ class AppHeader extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      margin: EdgeInsets.all(20),
+      margin: const EdgeInsets.all(20),
       decoration: const BoxDecoration(
         color: Color(0xFF05668d),
         borderRadius: BorderRadius.all(
@@ -15,7 +15,7 @@ class AppHeader extends StatelessWidget {
       ),
       height: 50,
       child: Row(
-        children: [
+        children: const [
           SizedBox(width: 15),
           Expanded(
             child: SizedBox(
@@ -29,15 +29,15 @@ class AppHeader extends StatelessWidget {
                   filled: true,
                   fillColor: Colors.white,
                   focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 0, color: Color(0x000000)),
+                    borderSide: BorderSide(width: 0, color: Color(0xFF000000)),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   enabledBorder: OutlineInputBorder(
-                    borderSide: BorderSide(width: 0, color: Color(0x000000)),
+                    borderSide: BorderSide(width: 0, color: Color(0xFF000000)),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                   border: OutlineInputBorder(
-                    borderSide: BorderSide(width: 0, color: Color(0x000000)),
+                    borderSide: BorderSide(width: 0, color: Color(0xFF000000)),
                     borderRadius: BorderRadius.all(Radius.circular(10)),
                   ),
                 ),

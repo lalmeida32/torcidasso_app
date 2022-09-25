@@ -38,7 +38,7 @@ class _AppFooterState extends State<AppFooter> {
           child: SingleChildScrollView(
             controller: widget.scrollController,
             padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-            child: GamesPage(),
+            child: const GamesPage(),
           ),
         ),
         Positioned(

@@ -16,16 +16,16 @@ class Game extends StatelessWidget {
       ),
       width: double.infinity,
       height: 60,
-      padding: EdgeInsets.symmetric(horizontal: 35),
+      padding: const EdgeInsets.symmetric(horizontal: 35),
       child: Stack(
         children: [
           Center(
-            child: Container(
+            child: SizedBox(
               width: double.infinity,
               child: Text(
-                this.name,
+                name,
                 textAlign: TextAlign.left,
-                style: TextStyle(
+                style: const TextStyle(
                   color: Colors.white,
                   fontFamily: 'Inter',
                   fontSize: 20,
@@ -34,9 +34,9 @@ class Game extends StatelessWidget {
               ),
             ),
           ),
-          Positioned(
+          const Positioned(
             right: -5,
-            child: Container(
+            child: SizedBox(
               height: 60,
               child: Center(
                 child: Icon(

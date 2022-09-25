@@ -7,7 +7,7 @@ class GamesPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(
-      children: [
+      children: const [
         SizedBox(height: 10),
         Game(name: 'Brasil x Catar'),
         SizedBox(height: 10),

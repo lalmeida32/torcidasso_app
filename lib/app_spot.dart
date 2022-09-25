@@ -32,8 +32,8 @@ class _AppSpotState extends State<AppSpot> {
                   endAngle: 0,
                   showLabels: false,
                   showTicks: false,
-                  axisLineStyle: AxisLineStyle(
-                      color: const Color(0xFF437DE9),
+                  axisLineStyle: const AxisLineStyle(
+                      color: Color(0xFF437DE9),
                       thickness: 0.2,
                       cornerStyle: CornerStyle.bothFlat,
                       thicknessUnit: GaugeSizeUnit.factor),

@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         body: SafeArea(
           child: Stack(
-            children: [
+            children: const [
               SizedBox.expand(
                 child: AppMap(),
               ),

@@ -3,12 +3,12 @@ import 'package:latlong2/latlong.dart';
 import 'package:torcidasso_app/app_spot.dart';
 
 class AppMarker {
-  LatLng _position;
-  List<int> torcida;
+  final LatLng _position;
+  final List<int> torcida;
 
   //Trocar pra seja lá qual o tipo
-  List<String> _times;
-  int _esporte;
+  final List<String> _times;
+  final int _esporte;
 
   AppMarker(this._position, this.torcida, this._times, this._esporte);
 
