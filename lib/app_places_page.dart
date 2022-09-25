@@ -15,6 +15,25 @@ class AppPlacesPage extends StatelessWidget {
           width: MediaQuery.of(context).size.width * 0.9,
           child: Stack(
             children: [
+              Positioned(
+                top: 15,
+                right: 0,
+                child: Icon(
+                  Icons.circle,
+                  size: 40,
+                  color: Color(0xFF679436),
+                ),
+              ),
+              Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Text(
+                    'Agora',
+                    style: TextStyle(
+                      fontFamily: 'Inter',
+                      color: Color(0xFF679436),
+                    ),
+                  )),
               IconButton(
                 icon: const Icon(Icons.arrow_back_ios),
                 onPressed: () => setOpen(false),
@@ -47,8 +66,10 @@ class AppPlacesPage extends StatelessWidget {
               Positioned(
                 bottom: 10,
                 child: Container(
-                  width: double.infinity,
-                  child: Text('FIFA World Cup'),
+                  width: MediaQuery.of(context).size.width * 0.85,
+                  child: Center(
+                    child: Text('FIFA World Cup'),
+                  ),
                 ),
               ),
             ],

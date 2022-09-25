@@ -95,11 +95,11 @@ class _AppMapState extends State<AppMap> {
         ),
         PopupMarkerLayerWidget(
           options: PopupMarkerLayerOptions(
-              popupController: _popupController,
-              markers: _markersList,
-              markerCenterAnimation: const MarkerCenterAnimation(),
-              popupBuilder: (context, marker) => const FlutterLogo()),
-        )
+            popupController: _popupController,
+            markers: _markersList,
+            markerCenterAnimation: const MarkerCenterAnimation(),
+          ),
+        ),
       ],
     );
   }
