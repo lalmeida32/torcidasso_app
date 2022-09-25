@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:torcidasso_app/app_draggable.dart';
+import 'package:torcidasso_app/app_header.dart';
 import 'package:torcidasso_app/app_map.dart';
 
 void main() {
@@ -27,6 +28,7 @@ class MyApp extends StatelessWidget {
               SizedBox.expand(
                 child: AppDraggable(),
               ),
+              AppHeader(),
             ],
           ),
         ),
