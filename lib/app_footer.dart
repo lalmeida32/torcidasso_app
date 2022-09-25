@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:torcidasso_app/app_games_page.dart';
+import 'package:torcidasso_app/app_places_page.dart';
 
 class AppFooter extends StatefulWidget {
   final ScrollController scrollController;
@@ -13,15 +14,14 @@ class AppFooter extends StatefulWidget {
 class _AppFooterState extends State<AppFooter> {
   bool _opened = false;
 
+  void _setOpen(bool value) {
+    setState(() {
+      _opened = value;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
-    // return ListView.builder(
-    //   controller: widget.scrollController,
-    //   itemCount: 25,
-    //   itemBuilder: (BuildContext context, int index) {
-    //     return ListTile(title: Text('Item $index'));
-    //   },
-    // );
     return Stack(
       children: [
         Container(
@@ -38,7 +38,7 @@ class _AppFooterState extends State<AppFooter> {
           child: SingleChildScrollView(
             controller: widget.scrollController,
             padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 30),
-            child: const GamesPage(),
+            child: _opened ? AppPlacesPage(_setOpen) : GamesPage(_setOpen),
           ),
         ),
         Positioned(

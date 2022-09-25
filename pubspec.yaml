@@ -96,3 +96,15 @@ flutter:
   #
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/custom-fonts/#from-packages
+  fonts:
+    - family: Inter
+      fonts:
+        - asset: assets/Inter-Black.ttf
+        - asset: assets/Inter-Bold.ttf
+        - asset: assets/Inter-ExtraBold.ttf
+        - asset: assets/Inter-ExtraLight.ttf
+        - asset: assets/Inter-Light.ttf
+        - asset: assets/Inter-Medium.ttf
+        - asset: assets/Inter-Regular.ttf
+        - asset: assets/Inter-SemiBold.ttf
+        - asset: assets/Inter-Thin.ttf
