@@ -4,8 +4,10 @@ import 'package:torcidasso_app/app_marker.dart';
 
 class AppSpot extends StatefulWidget {
   final AppMarker jogoMarker;
+  final String? type;
 
   const AppSpot({
+    this.type,
     required this.jogoMarker,
     Key? key,
   }) : super(key: key);
@@ -20,10 +22,9 @@ class _AppSpotState extends State<AppSpot> {
     return Stack(
       fit: StackFit.passthrough,
       children: [
-        Container(
+        widget.type == null ? Container() : Container(
             padding: const EdgeInsets.only(top: 11, left: 25, right: 25),
             child: SfRadialGauge(
-              // title: GaugeTitle(text: widget.jogoMarker.getText()),
               axes: <RadialAxis>[
                 RadialAxis(
                   minimum: 0,
@@ -47,31 +48,14 @@ class _AppSpotState extends State<AppSpot> {
                     )
                   ],
                 ),
-                // RadialAxis(
-                //   minimum: 0,
-                //   interval: 1,
-                //   maximum: 10,
-                //   showLabels: false,
-                //   showTicks: true,
-                //   showAxisLine: false,
-                //   tickOffset: -0.3,
-                //   offsetUnit: GaugeSizeUnit.factor,
-                //   minorTicksPerInterval: 0,
-                //   startAngle: 160,
-                //   endAngle: 20,
-                //   radiusFactor: 0.7,
-                //   majorTickStyle: MajorTickStyle(
-                //       length: 0.3,
-                //       thickness: 2,
-                //       lengthUnit: GaugeSizeUnit.factor,
-                //       color: const Color.fromARGB(80, 0, 0, 0)),
-                // )
               ],
-            )),
+            ),
+        ),
         Container(
             margin: const EdgeInsets.only(top: 21),
-            child: const Image(
-              image: AssetImage('assets/soccer_marker.png'),
+            child: Image(
+              image: const AssetImage('assets/soccer_marker.png'),
+              color: widget.type == null ? Colors.red : null,
             ))
       ],
     );

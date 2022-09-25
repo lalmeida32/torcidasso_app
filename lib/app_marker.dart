@@ -15,7 +15,7 @@ class AppMarker {
   Marker generateMarker() {
     return Marker(
       point: _position,
-      builder: ((context) => AppSpot(jogoMarker: this)),
+      builder: ((context) => AppSpot(type: null, jogoMarker: this)),
       rotate: true,
       width: 100,
       height: 75,
