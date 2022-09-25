@@ -80,6 +80,7 @@ class _AppMapState extends State<AppMap> {
         zoom: 10,
         keepAlive: true,
         minZoom: 3,
+        maxZoom: 18,
         interactiveFlags: ~InteractiveFlag.rotate,
       ),
       nonRotatedChildren: [

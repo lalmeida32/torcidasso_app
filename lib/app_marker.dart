@@ -14,11 +14,13 @@ class AppMarker {
 
   Marker generateMarker() {
     return Marker(
-        point: _position,
-        builder: ((context) => AppSpot(jogoMarker: this)),
-        rotate: true,
-        width: 100,
-        height: 75);
+      point: _position,
+      builder: ((context) => AppSpot(jogoMarker: this)),
+      rotate: true,
+      width: 100,
+      height: 75,
+      anchorPos: AnchorPos.align(AnchorAlign.top),
+    );
   }
 
   double getPercentage() {
